@@ -12,16 +12,14 @@ export const CartProvider = ({children}) => {
 
   const addItemToCart = (product) => {
     //primero pregunto si el product que recibo por param está ya en el carrito:
-    const inCart = products.find(
-      (productInCart) => productInCart.id === product.id
-    ); //ya está en el carrito!
+    const inCart = products.find((el) => el.id === product.id); //ya está en el carrito!
     if (inCart) {
       setProducts(
-        products.map((productInCart) => {
-          if (productInCart.id === product.id) {
+        products.map((el) => {
+          if (el.id === product.id) {
             return {...inCart, amount: inCart.amount + 1};
           } else {
-            return productInCart;
+            return el;
           }
         })
       );
@@ -33,16 +31,14 @@ export const CartProvider = ({children}) => {
 
   const deleteteItemToCart = (product) => {
     //primero pregunto si el product que recibo por param está ya en el carrito:
-    const inCart = products.find(
-      (productInCart) => productInCart.id === product.id
-    );
+    const inCart = products.find((el) => el.id === product.id);
     //si amount es 2 por ej, lo bajo a 1
     setProducts(
-      products.map((productInCart) => {
-        if (productInCart.id === product.id) {
+      products.map((el) => {
+        if (el.id === product.id) {
           return {...inCart, amount: inCart.amount - 1};
         } else {
-          return productInCart;
+          return el;
         }
       })
     );
