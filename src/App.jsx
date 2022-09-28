@@ -38,7 +38,20 @@ function App() {
           ))}
         </Grid>
         <Box pos="sticky" bottom="0" margin="auto" pb="16px">
-          <Button boxShadow="0 0 10px  rgba(0, 0, 0, 0.5)" colorScheme="blue">
+          <Button
+            boxShadow="0 0 10px  rgba(0, 0, 0, 0.5)"
+            color="white"
+            bgColor="dodgerblue"
+            border="none"
+            lineHeight="48px"
+            borderRadius="4px"
+            fontSize="18px"
+            fontWeight="500"
+            cursor="default"
+            _hover={{
+              bgColor: 'dodgerblue',
+            }}
+          >
             {quantity} {quantity <= 1 ? 'Producto' : 'Productos'} - Total: ($
             {total})
           </Button>
