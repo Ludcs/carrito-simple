@@ -21,3 +21,8 @@ Nuestro equipo de diseño nos dio este proyecto con la UI ya terminada, pero tod
 ## Entrega 3
 
 La Product Manager nos dijo que quieren usar esta misma lógica de carrito en otro proyecto. Debemos pasar toda la lógica de carrito de nuestro componente a context y luego usarlo. Debe ser lo suficientemente fácil de usar y medianamente genérico como para usarlo en otros proyectos.
+
+# Funcionalidades agregadas por mí:
+
+- Un input para realizar la búsqueda de una estampita en particular.
+- Un componente Cart que muestra las estampitas que se van agregando a éste (con su cantidad, titulo y precio).
