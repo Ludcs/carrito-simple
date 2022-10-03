@@ -26,3 +26,5 @@ La Product Manager nos dijo que quieren usar esta misma lógica de carrito en ot
 
 - Un input para realizar la búsqueda de una estampita en particular.
 - Un componente Cart que muestra las estampitas que se van agregando a éste (con su cantidad, titulo y precio).
+- Highlighted text al realizar la búsqueda del item (por título y por descripción).
+- use-debounce para el momento de realizar la búsqueda del item.

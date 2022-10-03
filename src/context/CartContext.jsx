@@ -17,7 +17,14 @@ export const CartProvider = ({children}) => {
   }, []);
 
   const filtrarEstampitas = (searchString) => {
-    let filtrada = products.filter((el) => el.title.includes(searchString));
+    let filtrada = products.filter((el) => {
+      if (
+        el.title.toUpperCase().includes(searchString.toUpperCase()) ||
+        el.description.toUpperCase().includes(searchString.toUpperCase())
+      ) {
+        return el;
+      }
+    });
     setFilteredProducts(filtrada);
   };
 
