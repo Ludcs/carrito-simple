@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useRef} from 'react';
 import {Estampita} from './components/Estampita';
 import {CartContext} from './context/CartContext';
 import {
@@ -29,6 +29,8 @@ function App() {
 
   const [showCart, setShowCart] = useState(false);
 
+  const debounceRef = useRef();
+
   const quantity = products.reduce((acc, prod) => acc + prod.amount, 0);
   const total = products.reduce(
     (acc, prod) => acc + prod.amount * prod.price,
@@ -36,9 +38,14 @@ function App() {
   );
 
   const handleSearch = (e) => {
-    let search = e.target.value;
-    filtrarEstampitas(search);
-    setInputValue(search);
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = setTimeout(() => {
+      //cuando pase 500ms ejecutar la busqueda
+      filtrarEstampitas(e.target.value);
+    }, 500);
+    setInputValue(e.target.value);
   };
 
   return (
