@@ -19,8 +19,8 @@ export const CartProvider = ({children}) => {
   const filtrarEstampitas = (searchString) => {
     let filtrada = products.filter((el) => {
       if (
-        el.title.toUpperCase().includes(searchString.toUpperCase()) ||
-        el.description.toUpperCase().includes(searchString.toUpperCase())
+        el.title.toLowerCase().includes(searchString.toLowerCase()) ||
+        el.description.toLowerCase().includes(searchString.toLowerCase())
       ) {
         return el;
       }
@@ -112,6 +112,8 @@ export const CartProvider = ({children}) => {
     }
   };
 
+  const renderStatementResult = inputValue && inputValue.length > 0;
+
   return (
     <CartContext.Provider
       value={{
@@ -125,6 +127,7 @@ export const CartProvider = ({children}) => {
         filtrarEstampitas,
         addItemToCart,
         deleteteItemToCart,
+        renderStatementResult,
       }}
     >
       {children}

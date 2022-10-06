@@ -1,17 +1,67 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {CartContext} from '../context/CartContext';
 import {Button, Image, Stack, Text, Flex} from '@chakra-ui/react';
 
-export const Estampita = ({product}) => {
+export const Estampita = ({product, inputValue, filteredProducts}) => {
   const {addItemToCart, deleteteItemToCart} = useContext(CartContext);
+  //const [onlyLetters, setOnlyLetters] = useState([]);
+  //const [onlyLettersInput, setOnlyLettersInput] = useState([]);
+  // const letters = highlighted.split('', 1);
+  // console.log(letters);
+
+  // let lowerCInputValue = inputValue.toLowerCase().replace(/\s+/g, '');
+  // let arrInputValueLetters = [...lowerCInputValue];
+  // console.log(arrInputValueLetters);
+  //console.log(lowerCInputValue);
+
+  // let onlyTitleFiltered = filteredProducts.map((el) => el.title);
+  // let titleFilteredLetters = onlyTitleFiltered
+  //   .toString()
+  //   .toLowerCase()
+  //   .replace(/\s+/g, '');
+  // let arrTitleFilteredLetters = [...titleFilteredLetters];
+  //let titleFilteredLetters = onlyTitleFiltered.replace(/\s+/g, '');
+  //console.log(arrTitleFilteredLetters);
+
+  // let titleProduct = product.title;
+  // let lowerC = titleProduct.toLowerCase().replace(/\s+/g, '');
+  // let arrTitleProduct = [...lowerC];
+  // console.log(arrTitleProduct);
+
+  // let loIncluye = onlyTitleFilteredToString.includes(inputValue);
+  // console.log(loIncluye);
+
+  //let tituloIncluyeInputValue = arrTitleProduct.includes(arrInputValue);
+  //console.log(tituloIncluyeInputValue);
+
+  // useEffect(() => {
+  //   setOnlyLetters(arrTitleProduct);
+  // }, []);
 
   return (
     <Stack gap="16px">
       <Image src={product.image} w="100%" objectFit="contain" />
       <Stack gap="6px" height="100%">
-        <Text fontWeight="500" fontSize="20px">
+        {/* {highlighted.map((el, i) => {
+          <Text
+            key={i}
+            fontWeight="500"
+            fontSize="20px"
+            color={
+              el.toLowerCase() === highlighted.toLowerCase() ? 'red' : 'blue'
+            }
+          >
+            {el}
+          </Text>;
+        })} */}
+        <Text
+          fontWeight="500"
+          fontSize="20px"
+          //color={loIncluye ? 'red' : 'black'}
+        >
           {product.title}
         </Text>
+
         <Text color="gray" marginBottom="20px !important">
           {product.description}
         </Text>

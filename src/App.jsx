@@ -28,6 +28,7 @@ function App() {
   } = useContext(CartContext);
 
   const [showCart, setShowCart] = useState(false);
+  const [highlighted, setHighlighted] = useState('');
 
   const debounceRef = useRef();
 
@@ -38,13 +39,20 @@ function App() {
   );
 
   const handleSearch = (e) => {
+    // const parts = e.target.value
+    //   .toLowerCase()
+    //   .split(new RegExp(`(${highlighted})`, 'gi'));
+
+    // setHighlighted(parts);
+    // console.log(parts);
+
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
     }
     debounceRef.current = setTimeout(() => {
-      //cuando pase 500ms ejecutar la busqueda
+      //cuando pase 350ms ejecutar la busqueda
       filtrarEstampitas(e.target.value);
-    }, 500);
+    }, 350);
     setInputValue(e.target.value);
   };
 
@@ -95,7 +103,13 @@ function App() {
             </Box>
           ) : (
             filteredProducts.map((product) => (
-              <Estampita key={product.id} product={product} />
+              <Estampita
+                key={product.id}
+                product={product}
+                //highlighted={highlighted}
+                // inputValue={inputValue}
+                // filteredProducts={filteredProducts}
+              />
             ))
           )}
         </Grid>
